@@ -1,0 +1,19 @@
+name: CI/CD
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build_and_publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: install deps
+        run: npm install
+
+      - name: build and build and publish
+        run: |
+          gh-pages -d build
