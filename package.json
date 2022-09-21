@@ -1,7 +1,7 @@
 {
   "name": "tic-tac-toe",
   "version": "0.1.0",
-  "homepage": "ttt.waynejessen.com",
+  "homepage": "https://ttt.waynejessen.com",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
