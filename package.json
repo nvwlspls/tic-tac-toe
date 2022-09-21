@@ -1,7 +1,7 @@
 {
   "name": "tic-tac-toe",
   "version": "0.1.0",
-  "homepage": "/tic-tac-toe",
+  "homepage": "https://ttt.waynejessen.com",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -17,7 +17,7 @@
     "predeploy": "npm run build",
     "deploy": "echo 'ttt.waynejessen.com' > ./build/CNAME && gh-pages -d build",
     "start": "react-scripts start",
-    "build": "mkdir build && echo 'ttt.waynejessen.com' > ./build/CNAME && react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
