@@ -13,14 +13,13 @@ jobs:
 
       - name: install deps
         run: npm install
-
-      - name: build
-        run: npm run build
-
       - name: deploy
-        uses: crazy-max/ghaction-github-pages@v2
-        with:
-          target_branch: gh-pages
-          build_dir: build
-        env:
-          GITHUB_TOKEN: ${{ secrets.CI_TOKEN }}
+        run: npm run deploy
+
+      # - name: deploy
+      #   uses: crazy-max/ghaction-github-pages@v3
+      #   with:
+      #     target_branch: gh-pages
+      #     build_dir: build
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.CI_TOKEN }}
