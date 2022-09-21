@@ -17,7 +17,7 @@
     "predeploy": "npm run build",
     "deploy": "echo 'ttt.waynejessen.com' > ./build/CNAME && gh-pages -d build",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "echo 'ttt.waynejessen.com' > ./build/CNAME && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
