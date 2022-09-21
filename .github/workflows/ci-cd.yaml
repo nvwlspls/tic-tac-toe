@@ -14,8 +14,8 @@ jobs:
       - name: install deps
         run: npm install
 
-      # - name: deploy
-      #   run: npm run deploy
+      - name: deploy
+        run: npm run build
       # - name: deploy with gh pages
       #   run: |
       #     git remote set-url origin https://git:${secrets.CI_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
