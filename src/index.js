@@ -63,17 +63,46 @@ function calculateWinner(squares) {
   return null;
 }
 
+function determineRowCol(i) {
+
+  switch (i) {
+    case 0:
+      return [1, 1];
+    case 1:
+      return [1, 2];
+    case 2:
+      return [1, 3];
+    case 3:
+      return [2, 1];
+    case 4:
+      return [2, 2];
+    case 5:
+      return [2, 3];
+    case 6:
+      return [3, 1];
+    case 7:
+      return [3, 2];
+    case 8:
+      return [3, 3];
+    default:
+      console.error("The grid number is incorrect");
+  }
+
+}
 class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       history: [{
         squares: Array(9).fill(null),
+        coord: null,
       }],
       stepNumber: 0,
       xIsNext: true,
     }
   }
+
+
 
   handleClick(i) {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
@@ -84,9 +113,11 @@ class Game extends React.Component {
       return;
     }
     squares[i] = this.state.xIsNext ? 'X' : 'O';
+    const coord = determineRowCol(i)
     this.setState({
       history: history.concat([{
         squares: squares,
+        coord: coord
       }]),
       stepNumber: history.length,
       xIsNext: !this.state.xIsNext,
@@ -108,9 +139,13 @@ class Game extends React.Component {
       const desc = move ?
         'Go to move #' + move :
         'Go to game start';
+      const coord = step.coord ?
+        '(x,y) ' + step.coord:
+        ''
       return (
         <li key={move}>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          <p>{coord}</p>
         </li>
       )
     });
@@ -131,7 +166,7 @@ class Game extends React.Component {
         </div>
         <div className="game-info">
           <div>{status}</div>
-          <ol>{moves}</ol>
+          <ol>{moves} </ol>
         </div>
       </div>
     );
